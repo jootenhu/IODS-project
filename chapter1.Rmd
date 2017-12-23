@@ -1,4 +1,8 @@
 
 # About the project
 
-*Write a short description about the course and add a link to your github repository here. This is an R markdown (.Rmd) file so you can use R markdown syntax. See the 'Useful links' page in the mooc area (chapter 1) for instructions.*
+Introduction to Open Data Science is a MOOC (Massive Open Online Course) hosted by the University of Helsinki: http://mooc.helsinki.fi
+
+*After completing this course you will understand the principles and advantages of using open research tools with open data and understand the possibilities of reproducible research. You will know how to use R, RStudio, RMarkdown, and GitHub for these tasks and also know how to learn more of these open software tools. You will also know how to apply certain statistical methods of data science, that is, data-driven statistics.*
+
+A link to my GitHub repository for this course: https://github.com/jootenhu/IODS-project
