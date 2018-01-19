@@ -1,7 +1,63 @@
-# Insert chapter 2 title here
+#Regression and model validation
 
-*Describe the work you have done this week and summarize your learning.*
+The theme for the first exercise is regression analysis.
+Data set was survey results from introductory level statistics course, and was about learning approaches.
 
-- Describe your work and results clearly. 
-- Assume the reader has an introductory course level understanding of writing and reading R code as well as statistical methods
-- Assume the reader has no previous knowledge of your data or the more advanced methods you are using  
+
+First the data had to be preprocessed for further analysis. By combining questions in the data, scaling combination variables, and excluding some observations, end result was learning2014.cvs 
+
+
+
+```{r}
+learning2014 <- read.csv("data/learning2014.csv", header = TRUE, sep=",")
+
+#print out structure of dataset
+str(learning2014)
+head(learning2014)
+```
+
+learning2014.csv consists of 166 observations and 7 variables which are:
+
+* gender
+* age
+* attitude towards statistics in general
+* exam points 
+
+and the three learning approaches 
+
+* deep
+* strategic
+* surface
+
+##Summary of variables
+```{r}
+summary(learning2014)
+```
+
+
+##A matrix of scatterplots
+```{r}
+pairs(learning2014[-1])
+
+```
+
+
+Age tends to be on the lower side, and there are no clear correlation in any of the pairs. There is interesting gap in the Points variable around value of 15.
+```{r}
+
+
+library(GGally)
+library(ggplot2)
+
+ggpairs(learning2014, lower = list(combo = wrap("facethist", bins = 20)))
+
+```
+
+
+There are no big correlations between variables, biggest being with Attitude and Points (0.437).
+Distributions seems quite normally distributed with the exception of Age wich is positively skewed. The gap in the Points variable deforms the distribution some.
+```{r}
+ggpairs(learning2014, mapping = aes(col = Gender, alpha = 0.3), lower = list(combo = wrap("facethist", bins = 20)))
+```
+
+When the data is split with the gender, stronger correlation (-0.622) is found between Deep and Surf variables in the responses of male participants. With female responses this is -0.087.
